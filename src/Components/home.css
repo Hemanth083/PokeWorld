@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "luck";
+  src: url("../assets/fonts/font/Bangers/Bangers-Regular.ttf");
+}
+@font-face {
+  font-family: "press";
+  src: url("../assets/fonts/font/Press_Start_2P/PressStart2P-Regular.ttf");
+}
+@font-face {
+  font-family: "lucky";
+  src: url("../assets/fonts/font/Luckiest_Guy/LuckiestGuy-Regular.ttf");
+}
+.Home-landing {
+  background-image: url("../assets/wallpapersden.com_pokemon-pikachu-art_1920x1080.jpg");
+  background-size: cover;
+}
+h1 {
+  font-family: "luck";
+  font-size: 55px !important;
+}
+h2 {
+  font-family: "press";
+  font-size: 15px;
+}
+p {
+  font-family: "lucky";
+  font-size: 20px;
+}
+.bg-opacity {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Adjust the last value (0.25) to set the opacity */
+}
+.disc {
+  color: yellow;
+}
+.blue {
+  color: #0075be;
+}
+.yellow {
+  color: #ffcc00;
+}
+.poki-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+  gap: 30px; /* Gap between grid items */
+  width: 85%;
+  margin-left: 100px;
+  margin-top: 60px;
+}
+.container {
+  position: relative;
+}
+.pokemon img {
+  transition: transform 0.3s ease; /* Add transition for smooth scaling */
+}
+
+.pokemon:hover img {
+  transform: scale(1.6); /* Scale the image on hover */
+}
+.container {
+  transition: transform 0.3s ease; /* Add transition for smooth scaling */
+}
+
+.container:hover {
+  transform: scale(0.9); /* Scale down the container on hover */
+  border-radius: 5%;
+}
+.details {
+  position: absolute;
+  z-index: 10;
+  top: -20px;
+  left: -30%;
+  width: 50%;
+  display: block;
+  background: #0f0;
+}
