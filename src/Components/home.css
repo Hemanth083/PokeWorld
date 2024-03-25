@@ -164,7 +164,7 @@ option {
   }
   .details {
     width: 100vw !important;
-    height: 100vh !important;
+    height: 130vh !important;
     top: 0px;
     left: 0px;
     z-index: 100000;
@@ -194,5 +194,14 @@ option {
   }
   h2 {
     font-size: 15px !important;
+  }
+  .SomeContainer {
+    gap: 0px;
+  }
+  .Pagragraph {
+    font-size: 10px !important;
+  }
+  .animationImage {
+    width: 40px;
   }
 }

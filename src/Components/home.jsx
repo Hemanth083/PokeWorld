@@ -151,7 +151,7 @@ const Pokemon = ({ name, url }) => {
                                 <p className='text-white text-center  fs-1 border-bottom  '>{pokemonData.name}</p>
                                 <div >
                                     <img
-                                        className='text-center'
+                                        className='text-center animationImage'
                                         width="65px"
                                         src={pokemonData.sprites?.versions['generation-v']['black-white'].animated.front_default}
                                         alt={`${pokemonData.name} sprite`}
@@ -170,35 +170,38 @@ const Pokemon = ({ name, url }) => {
                                 </div>
                                 <div className="d-flex  h-50   align-items-center   justify-content-center ">
                                     <div className=' w-75 d-flex  align-items-center  justify-content-center  gap-5   flex-column  '>
-                                        <div className=' w-100  d-flex  align-items-center  justify-content-start gap-5  flex-row   '>
-                                            <div>
+                                        <div className=' w-100 SomeContainer  d-flex  align-items-center  justify-content-start gap-5  flex-row   '>
+                                            <div className='w-25 '>
                                                 <p
-                                                    className=' h-50 border-bottom text-white'>Abilities :</p>
+                                                    className=' Pagragraph h-50 border-bottom text-white'>Abilities :</p>
                                                 <div className='text-white'>
                                                     {pokemonData.abilities.map((ability, index) => (
-                                                        <p className=' fs-6' key={index}>{index + 1}. {ability.ability.name}</p>
+                                                        <p className='Pagragraph fs-6' key={index}>{index + 1}. {ability.ability.name}</p>
                                                     ))}
                                                 </div>
                                             </div>
-                                            <div>
+                                            <div className='w-25 '>
                                                 <p
-                                                    className=' h-50 w-100 border-bottom text-white'> Type :</p>
+                                                    className=' h-50 w-100 Pagragraph border-bottom text-white'> Type :</p>
                                                 <div className='text-white'>
                                                     {pokemonData.types.map((type, index) => (
-                                                        <p className=' fs-6' key={index}>{type.type.name}</p>
+                                                        <>
+                                                            <p className='Pagragraph fs-6' key={index}>{type.type.name}</p>
+                                                            <p> </p>
+                                                        </>
                                                     ))}
                                                 </div>
                                             </div>
-                                            <div>
+                                            <div className='w-25  '>
                                                 <p
-                                                    className=' h-50 w-100 border-bottom text-white'>Physical :</p>
-                                                <p className='fs-6 text-white'>{`Height: ${pokemonData.height}`}</p>
-                                                <p className=' fs-6 text-white'>{`Weight: ${pokemonData.weight}`}</p>
+                                                    className=' h-50 w-100 Pagragraph border-bottom text-white'>Physical :</p>
+                                                <p className='fs-6 Pagragraph text-white'>{`Height: ${pokemonData.height}`}</p>
+                                                <p className=' fs-6 Pagragraph text-white'>{`Weight: ${pokemonData.weight}`}</p>
                                             </div>
                                         </div>
                                         <div className=' w-100   h-50 d-flex  flex-column '>
-                                            <p className='text-white border-bottom w-25   '>Description :</p>
-                                            <p className='fs-6 w-100 text-white'> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam placeat, soluta ullam inventore facere suscipit, dolorum ipsum, quo ad similique officia consequuntur nulla deserunt ab voluptas fuga id! Fugit, ut
+                                            <p className='text-white border-bottom w-50   '>Description :</p>
+                                            <p className=' Pagragraphfs-6 w-100 text-white'> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam placeat, soluta ullam inventore facere suscipit, dolorum ipsum, quo ad similique officia consequuntur nulla deserunt ab voluptas fuga id! Fugit, ut
 
                                             </p>
                                         </div>
