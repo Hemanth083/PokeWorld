@@ -13,11 +13,11 @@
   justify-content: center;
   font-family: "press";
   background-color: transparent;
-  transition: background-color 0.3s ease; /* Simplified transition for border color */
+  transition: background-color 0.3s ease; 
 }
 
 .NavButtons:hover {
-  border-right-color: salmon !important; /* Change border-right-color directly */
+  border-right-color: salmon !important; 
   background: linear-gradient(to right, salmon 50%, rgb(34, 34, 34) 50%);
   background-position: 100%;
 }
@@ -66,7 +66,6 @@
   border-radius: 100px;
   display: none;
 }
-/* Media query for smaller screens */
 @media (max-width: 1024px) {
   .nav {
     position: fixed !important;
@@ -110,7 +109,6 @@
     background-color: transparent;
   }
 }
-/* Media query for smaller screens */
 
 .menu-content {
   position: fixed;
@@ -123,8 +121,8 @@
     0,
     0,
     0.447
-  ); /* Semi-transparent black background */
-  z-index: 999; /* Ensures the menu content is displayed above other elements */
+  ); 
+  z-index: 999; 
 }
 
 .menu-items {
@@ -142,7 +140,7 @@
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.511);
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow effect */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
 }
 
 .close-button {
@@ -154,7 +152,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1000; /* Ensure the close button is above other content */
+  z-index: 1000; 
 }
 @media (max-width: 768px) {
   .menu-icon {

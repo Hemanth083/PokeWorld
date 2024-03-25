@@ -1,4 +1,3 @@
-// mainComponent.js
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import axios from 'axios';
@@ -8,7 +7,7 @@ import Menu from './assets/menu.svg'
 
 function MainComponent() {
     const [currentPage, setCurrentPage] = useState("Home");
-    const [data, setData] = useState(null); // Define the data state
+    const [data, setData] = useState(null); 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [showMenu, setShowMenu] = useState(false);
@@ -50,7 +49,7 @@ function MainComponent() {
             <div className='Content'>
                 {loading && <div>Loading...</div>}
                 {error && <div>Error: {error}</div>}
-                {currentPage === "Home" && !loading && !error && <Home pokiData={data} />} {/* Use data instead of pokiData */}
+                {currentPage === "Home" && !loading && !error && <Home pokiData={data} />} 
             </div>
 
             <img src={Menu} alt="Menu" className="menu-icon" onClick={() => setShowMenu(!showMenu)} />

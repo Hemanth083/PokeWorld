@@ -33,7 +33,7 @@ const Home = () => {
             );
             if (selectedType) {
                 filtered = filtered.filter(pokemon =>
-                    pokemon.types.some(type => type.type.name === selectedType)
+                    pokemon.types && pokemon.types.some(type => type.type.name === selectedType)
                 );
             }
             setFilteredData(filtered);
@@ -41,7 +41,6 @@ const Home = () => {
 
         filterPokemons();
     }, [searchTerm, selectedType, pokiData]);
-
 
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
@@ -78,7 +77,7 @@ const Home = () => {
                         placeholder="Search Pokémon"
                         value={searchTerm}
                         onChange={handleSearchChange}
-                        className='imput'
+                        className='input'
                     />
                     <select value={selectedType} onChange={handleTypeChange}>
                         <option value="">All Types</option>
@@ -120,22 +119,21 @@ const Pokemon = ({ name, url }) => {
     }, [url]);
 
     const handleOpen = () => {
-        setShowDetails(true); // Open the details view when clicked
+        setShowDetails(true);
     };
 
     const handleClose = (event) => {
-        event.stopPropagation(); // Prevent the event from bubbling up to the parent div
-        setShowDetails(false); // Close the details view when close button is clicked
+        event.stopPropagation();
+        setShowDetails(false);
     };
-
 
     return (
         <div className='pokemon w-75' onClick={handleOpen}>
             {pokemonData && (
                 <div className={`${showDetails ? 'show-details' : ''}`}>
-                    <div style={{ width: "220px" }} className='pokemon-details  h-50  d-flex  align-items-center  justify-content-center  flex-column   text-center bg-dark  p-4 container'>
+                    <div style={{ width: "220px" }} className='pokemon-details h-50 d-flex align-items-center justify-content-center flex-column text-center bg-dark p-4 container'>
                         <img
-                            className='Imagepopup mb-4  '
+                            className='Imagepopup mb-4'
                             style={{ width: '300px' }}
                             src={pokemonData.sprites?.other['official-artwork'].front_default}
                             alt={`${name} sprite`}
@@ -143,13 +141,13 @@ const Pokemon = ({ name, url }) => {
                         <p className='text-white'>{name}</p>
                     </div>
                     {showDetails && (
-                        <div className='details  bg-dark d-flex bg-opacity-100 rounded-5 flex-column  align-items-center  justify-content-start  '>
-                            <div className='w-75 text-end '>
-                                <img src={close} width="35px" className=' bg-light text-end mt-5 button rounded ' alt="" onClick={handleClose} />
+                        <div className='details bg-dark d-flex bg-opacity-100 rounded-5 flex-column align-items-center justify-content-start'>
+                            <div className='w-75 text-end'>
+                                <img src={close} width="35px" className='bg-light text-end mt-5 button rounded' alt="" onClick={handleClose} />
                             </div>
-                            <div className=' w-100  d-flex align-items-center gap-4  justify-content-center  flex-row '>
-                                <p className='text-white text-center  fs-1 border-bottom  '>{pokemonData.name}</p>
-                                <div >
+                            <div className='w-100 d-flex align-items-center gap-4 justify-content-center flex-row'>
+                                <p className='text-white text-center fs-1 border-bottom'>{pokemonData.name}</p>
+                                <div>
                                     <img
                                         className='text-center animationImage'
                                         width="65px"
@@ -158,57 +156,46 @@ const Pokemon = ({ name, url }) => {
                                     />
                                 </div>
                             </div>
-                            <div className=' w-100 BIGImage d-flex h-100   align-items-center  justify-content-start '>
-                                <div className='w-100 d-flex  align-items-center  justify-content-center  flex-column '>
-
+                            <div className='w-100 BIGImage d-flex h-100 align-items-center justify-content-start'>
+                                <div className='w-100 d-flex align-items-center justify-content-center flex-column'>
                                     <img
-                                        className='Imagepopup mb-4  '
+                                        className='Imagepopup mb-4'
                                         style={{ width: '300px' }}
                                         src={pokemonData.sprites?.other['official-artwork'].front_default}
                                         alt={`${name} sprite`}
                                     />
                                 </div>
-                                <div className="d-flex  h-50   align-items-center   justify-content-center ">
-                                    <div className=' w-75 d-flex  align-items-center  justify-content-center  gap-5   flex-column  '>
-                                        <div className=' w-100 SomeContainer  d-flex  align-items-center  justify-content-start gap-5  flex-row   '>
-                                            <div className='w-25 '>
-                                                <p
-                                                    className=' Pagragraph h-50 border-bottom text-white'>Abilities :</p>
+                                <div className="d-flex h-50 align-items-center justify-content-center">
+                                    <div className='w-75 d-flex align-items-center justify-content-center gap-5 flex-column'>
+                                        <div className='w-100 SomeContainer d-flex align-items-center justify-content-start gap-5 flex-row'>
+                                            <div className='w-25'>
+                                                <p className='Paragraph h-50 border-bottom text-white'>Abilities :</p>
                                                 <div className='text-white'>
                                                     {pokemonData.abilities.map((ability, index) => (
-                                                        <p className='Pagragraph fs-6' key={index}>{index + 1}. {ability.ability.name}</p>
+                                                        <p className='Paragraph fs-6' key={index}>{index + 1}. {ability.ability.name}</p>
                                                     ))}
                                                 </div>
                                             </div>
-                                            <div className='w-25 '>
-                                                <p
-                                                    className=' h-50 w-100 Pagragraph border-bottom text-white'> Type :</p>
+                                            <div className='w-25'>
+                                                <p className='h-50 w-100 Paragraphborder-bottom text-white'> Type :</p>
                                                 <div className='text-white'>
                                                     {pokemonData.types.map((type, index) => (
-                                                        <>
-                                                            <p className='Pagragraph fs-6' key={index}>{type.type.name}</p>
-                                                            <p> </p>
-                                                        </>
+                                                        <p className='Paragraph fs-6' key={index}>{type.type.name}</p>
                                                     ))}
                                                 </div>
                                             </div>
-                                            <div className='w-25  '>
-                                                <p
-                                                    className=' h-50 w-100 Pagragraph border-bottom text-white'>Physical :</p>
-                                                <p className='fs-6 Pagragraph text-white'>{`Height: ${pokemonData.height}`}</p>
-                                                <p className=' fs-6 Pagragraph text-white'>{`Weight: ${pokemonData.weight}`}</p>
+                                            <div className='w-25'>
+                                                <p className='h-50 w-100 Paragraph border-bottom text-white'>Physical :</p>
+                                                <p className='fs-6 Paragraph text-white'>{`Height: ${pokemonData.height}`}</p>
+                                                <p className='fs-6 Paragraph text-white'>{`Weight: ${pokemonData.weight}`}</p>
                                             </div>
                                         </div>
-                                        <div className=' w-100   h-50 d-flex  flex-column '>
-                                            <p className='text-white border-bottom w-50   '>Description :</p>
-                                            <p className=' Pagragraphfs-6 w-100 text-white'> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam placeat, soluta ullam inventore facere suscipit, dolorum ipsum, quo ad similique officia consequuntur nulla deserunt ab voluptas fuga id! Fugit, ut
-
-                                            </p>
+                                        <div className='w-100 h-50 d-flex flex-column'>
+                                            <p className='text-white border-bottom w-50'>Description :</p>
+                                            <p className='Paragraph fs-6 w-100 text-white'> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam placeat, soluta ullam inventore facere suscipit, dolorum ipsum, quo ad similique officia consequuntur nulla deserunt ab voluptas fuga id! Fugit, ut</p>
                                         </div>
                                     </div>
-
                                 </div>
-
                             </div>
                         </div>
                     )}

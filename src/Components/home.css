@@ -99,29 +99,26 @@ p {
   height: 95vh;
   display: block;
   background: #0f0;
-  transition: transform 0.3s ease; /* Add transition for smooth scaling */
+  transition: transform 0.3s ease; 
 }
 .input::placeholder {
   font-family: "luck";
 }
 
-/* Additional CSS rules for toggling width on click */
 .display-clicked .poki-container {
-  width: 100%; /* Change width of poki-container when display is clicked */
+  width: 100%; 
 }
 
 .display-clicked .container {
   margin-left: 50px; /* Change margin-left of container when display is clicked */
 }
 
-/* Adjusted position for details when clicked */
 .display-clicked .details {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-/* Reset hover effect when clicked */
 .display-clicked .pokimaon-details:hover img {
   transform: scale(0.9); /* Reset scale on hover when clicked */
 }
