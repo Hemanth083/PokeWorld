@@ -4,10 +4,11 @@ import { Navbar, Nav } from 'react-bootstrap';
 import axios from 'axios';
 import "./mainComponent.css";
 import Home from './Components/home';
+import Menu from './assets/menu.svg'
 
 function MainComponent() {
     const [currentPage, setCurrentPage] = useState("Home");
-    const [data, setData] = useState(null);
+    const [data, setData] = useState(null); // Define the data state
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [showMenu, setShowMenu] = useState(false);
@@ -15,11 +16,11 @@ function MainComponent() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=20");
-                setData(response.data);
+                const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=20');
+                setData(response.data.results);
+                setLoading(false);
             } catch (error) {
-                setError('Error fetching data');
-            } finally {
+                setError(error.message);
                 setLoading(false);
             }
         };
@@ -30,9 +31,6 @@ function MainComponent() {
     const handleNavClick = (page) => {
         setCurrentPage(page);
     };
-
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
 
     return (
         <div className="d-flex flex-row mainContainer">
@@ -45,15 +43,17 @@ function MainComponent() {
             {showMenu && (
                 <div className="menu-content">
                     <button className="close-button" onClick={() => setShowMenu(false)}>&times;</button>
-                    <div className="menu-items"></div>
+                    <div className="menu-items "><h1>Home</h1></div>
                 </div>
             )}
 
             <div className='Content'>
-                {currentPage === "Home" && <Home pokiData={data} />}
+                {loading && <div>Loading...</div>}
+                {error && <div>Error: {error}</div>}
+                {currentPage === "Home" && !loading && !error && <Home pokiData={data} />} {/* Use data instead of pokiData */}
             </div>
 
-            <img src="path_to_menu_icon" alt="Menu" className="menu-icon" onClick={() => setShowMenu(!showMenu)} />
+            <img src={Menu} alt="Menu" className="menu-icon" onClick={() => setShowMenu(!showMenu)} />
         </div>
     );
 }
