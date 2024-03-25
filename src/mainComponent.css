@@ -156,3 +156,8 @@
   cursor: pointer;
   z-index: 1000; /* Ensure the close button is above other content */
 }
+@media (max-width: 768px) {
+  .menu-icon {
+    padding: 10px;
+  }
+}

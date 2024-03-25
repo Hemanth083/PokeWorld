@@ -173,3 +173,26 @@ option {
     flex-direction: column;
   }
 }
+@media (max-width: 768px) {
+  .Home-landing {
+    background-position: 650px;
+  }
+  .pokimaon-details {
+    width: 50px !important;
+  }
+  .Imagepopup {
+    width: 200px !important;
+  }
+  .poki-container {
+    grid-template-columns: repeat(1, 2fr);
+  }
+  p {
+    font-size: 10px !important;
+  }
+  h1 {
+    font-size: 35px !important;
+  }
+  h2 {
+    font-size: 15px !important;
+  }
+}
